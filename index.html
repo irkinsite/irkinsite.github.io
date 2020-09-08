@@ -18,7 +18,7 @@
 				align-items: center;
 			}
 			p {
-				margin: 0 0 2em;
+				margin: 0;
 				font-size: 6rem;
 			}
 			a {
@@ -28,9 +28,37 @@
 				text-decoration: none;
 				border-bottom: solid 0.2rem #a58a2a;
 			}
+			.mne36 {
+				position: absolute;
+				z-index: 2;
+				bottom: 1em;
+				right: 1em;
+				font-weight: bold;
+				font-size: 3rem;
+			}
 		</style>
 	</head>
 	<body>
 		<p>Здравствуйте,<br/>я Ира, а это мой сайт!<br/><a href="#" onclick="this.innerHTML='+7090101840702080304'.replace(/0/g,'');this.href='tel:'+this.innderHTML;this.onclick=null;return false">показать телефон</a></p>
+		<a class="mne36" href="javascript://" id="mne36">#мне36</a>
+
+		<script type="text/javascript">
+			const link = document.querySelector('#mne36');
+			const wrap = document.createElement('div');
+
+			let opened = false;
+			link.addEventListener('click', () => {
+				if (opened) {
+					opened = false;
+					wrap.innerHTML = '';
+					link.innerHTML = '#мне36';
+				} else {
+					opened = true;
+					link.innerHTML = 'закрыть';
+					wrap.insertAdjacentHTML('beforeend','<iframe src="https://www.youtube.com/embed/--OcDIBRjb4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><style>iframe {position:absolute;left:0;top:0;width:100%;height:100%}</style>');
+				}
+			});
+			document.body.append(wrap);
+		</script>
 	</body>
 </html>
